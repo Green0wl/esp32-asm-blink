@@ -1,2 +1,7 @@
 build
 .cache
+.vim
+*.o
+*.bin
+*.elf
+*.swp
