@@ -20,7 +20,7 @@ Should further elucidation be required, direct reference to the code is advised,
 
 ~/esp$ cd ./esp-idf
 ~/esp/esp-idf$ ./install.sh esp32
-~/esp/esp-idf$ . export.sh
+~/esp/esp-idf$ . ./export.sh
 
 # Optional: check whether tooling has been installed.
 ~/esp/esp-idf$ idf.py --help
