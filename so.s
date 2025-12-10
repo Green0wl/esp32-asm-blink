@@ -1,11 +1,10 @@
-/* so.s - ESP32 (ESP32-WROOM-32E module and ESP-32S board)
- * bare-metal LED blink on GPIO2.
- *
- * Thanks to the guys who wrote
- * http://cholla.mmto.org/esp32/bootrom/lightning.html
- * and http://cholla.mmto.org/esp8266/xtensa.html.
- * Most of the explanations were taken from there.
- */
+// so.s - ESP32 (ESP32-WROOM-32E module and ESP-32S board)
+// bare-metal LED blink on GPIO2.
+
+// Thanks to the guys who wrote
+// http://cholla.mmto.org/esp32/bootrom/lightning.html
+// and http://cholla.mmto.org/esp8266/xtensa.html.
+// Most of the explanations were taken from there.
 
 .section                .text
 
@@ -134,7 +133,7 @@ call_start_cpu0:
         s32i            a3, a2, 0
         memw
 blink_loop:
-        /* Set GPIO2 HIGH */
+        // Set GPIO2 HIGH
         l32r            a2, gpio_out_set
         l32r            a3, gpio2_mask
         memw
@@ -142,7 +141,7 @@ blink_loop:
         memw
         excw
 
-        /* Delay */
+        // Delay
         l32r            a4, delay_count
         memw
 delay1:
@@ -152,14 +151,14 @@ delay1:
         // branch (i.e. jump to delay1) if not equal zero
         bnez            a4, delay1
 
-        /* Set GPIO2 LOW */
+        // Set GPIO2 LOW
         l32r            a2, gpio_out_clr
         l32r            a3, gpio2_mask
         memw
         s32i            a3, a2, 0
         memw
 
-        /* Delay */
+        // Delay
         l32r            a4, delay_count
         memw
 delay2:
